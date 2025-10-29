@@ -1,7 +1,7 @@
 # CNN :
 
 ### Description
-Ce projet est une implémentation en C++ d'un réseau de neurones convolutif (CNN) inspiré de l'architecture AlexNet. Il fournit les fonctionnalités de base pour le traitement d'images avec des opérations de convolution, de pooling et d'activation, ainsi qu'une suite complète de tests unitaires pour valider chaque composant.
+Ce projet est une implémentation en C++ d'un réseau de neurones convolutif (CNN). Il fournit les fonctionnalités de base pour le traitement d'images avec des opérations de convolution, de pooling et d'activation, ainsi qu'une suite complète de tests unitaires pour valider chaque composant.
 
 ### Structure du projet
 
@@ -61,6 +61,28 @@ g++ src/Matrix3D.cpp src/ConvLayer.cpp src/ReLULayer.cpp src/PoolingLayer.cpp sr
 ./alexnet -v       # Mode verbeux (affiche tous les détails)
 ./alexnet -q       # Mode silencieux (affiche seulement le résumé)
 ./alexnet -h       # Affiche l'aide
+```
+
+#### Jamais utilisé Make ? (Sous Windows avec WSL)
+
+```bash
+# 1. Installer WSL depuis PowerShell en mode administrateur
+wsl --install
+
+# 2. Lancer Ubuntu (depuis le menu Windows : tapez "Ubuntu")
+sudo apt update
+sudo apt install build-essential  # Installe les outils de compilation (gcc, make, etc.)
+
+# 3. Accéder au répertoire du projet
+# Remplacez le chemin par celui où se trouve votre projet
+# Note : Les disques Windows apparaissent sous /mnt/, par ex. C: → /mnt/c/
+cd /mnt/c/Chemin/Vers/CNN-Shoko_official
+
+# 4. Compiler et exécuter le projet avec Make
+make run      # Compile et lance le programme
+# ou
+make          # Compile seulement
+./alexnet -q  # Exécute en mode silencieux (résumé uniquement)
 ```
 
 ### Exemple d'utilisation
