@@ -1,0 +1,16 @@
+Licence personnalisée
+
+Copyright (c) 2025 Shoko_official (utilisateur GitHub anonyme)
+
+Vous êtes autorisé à :
+- Utiliser et modifier ce code pour vos besoins personnels.
+- Distribuer ce code ou ses modifications **uniquement en mentionnant clairement l'auteur original**.
+
+Il est interdit de :
+- Utiliser ce code à des fins commerciales sans accord écrit préalable.
+- Entraîner des modèles d'intelligence artificielle avec ce code ou son contenu sans autorisation explicite.
+- Distribuer ce code sans attribution correcte.
+
+Les suggestions d’amélioration via issues ou pull requests sont les bienvenues et peuvent être intégrées sous ces mêmes conditions.
+
+Lien officiel du projet : https://github.com/Shoko-official/CNN
