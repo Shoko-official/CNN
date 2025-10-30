@@ -30,4 +30,4 @@ public:
     int getOutputSize() const;
 };
 
-#endif // FULLYCONNECTEDLAYER_HPP
+#endif

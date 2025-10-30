@@ -24,4 +24,4 @@ public:
     int getStride() const;
 };
 
-#endif // POOLLAYER_HPP
+#endif

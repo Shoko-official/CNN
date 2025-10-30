@@ -16,4 +16,4 @@ public:
     void printInfo() const override;
 };
 
-#endif // RELULAYER_HPP
+#endif

@@ -35,4 +35,4 @@ public:
     void update(FullyConnectedLayer& layer, float lr) override;
 };
 
-#endif // OPTIMIZER_HPP
+#endif
