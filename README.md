@@ -6,28 +6,28 @@ Ce projet est une implémentation en C++ d'un réseau de neurones convolutif (CN
 ### Structure du projet
 
 ```
-CNN-Shoko_official/
-├── build/                       # Répertoire de compilation (généré)
-├── Explications.md              # Explications détaillées des techniques
-├── Formules.md                  # Référence mathématique complète
-├── include/
-│   ├── Color.hpp                # Utilitaires pour la coloration de sortie console
-│   ├── ConvLayer.hpp            # Couche de convolution
-│   ├── FullyConnectedLayer.hpp  # Couche entièrement connectée
-│   ├── Layer.hpp                # Classe de base pour les couches du réseau
-│   ├── Matrix3D.hpp             # Classe pour la manipulation de matrices 3D
-│   ├── PoolingLayer.hpp         # Couche de pooling
-│   └── ReLULayer.hpp            # Couche d'activation ReLU
-├── License.txt                  # Fichier contenant la licence du projet
-├── Makefile                     # Système de compilation
-├── README.md                    # Ce fichier
-└── src/
-    ├── ConvLayer.cpp            # Implémentation de la couche de convolution
-    ├── FullyConnectedLayer.cpp  # Implémentation de la couche entièrement connectée
-    ├── main.cpp                 # Programme principal avec tests unitaires
-    ├── Matrix3D.cpp             # Implémentation des opérations matricielles
-    ├── PoolingLayer.cpp         # Implémentation de la couche de pooling
-    └── ReLULayer.cpp            # Implémentation de la couche d'activation ReLU
+📁 CNN-Shoko_official/
+├── 📁 build/                       # Répertoire de compilation (généré)
+├── 📄 Explications.md              # Explications détaillées des techniques
+├── 📄 Formules.md                  # Référence mathématique complète
+├── 📁 include/
+│   ├── 📄 Color.hpp                # Utilitaires pour la coloration de sortie console
+│   ├── 📄 ConvLayer.hpp            # Couche de convolution
+│   ├── 📄 FullyConnectedLayer.hpp  # Couche entièrement connectée
+│   ├── 📄 Layer.hpp                # Classe de base pour les couches du réseau
+│   ├── 📄 Matrix3D.hpp             # Classe pour la manipulation de matrices 3D
+│   ├── 📄 PoolingLayer.hpp         # Couche de pooling
+│   └── 📄 ReLULayer.hpp            # Couche d'activation ReLU
+├── 📄 License.txt                  # Fichier contenant la licence du projet
+├── 📄 Makefile                     # Système de compilation
+├── 📄 README.md                    # Ce fichier
+└── 📁 src/
+    ├── 📄 ConvLayer.cpp            # Implémentation de la couche de convolution
+    ├── 📄 FullyConnectedLayer.cpp  # Implémentation de la couche entièrement connectée
+    ├── 📄 main.cpp                 # Programme principal avec tests unitaires
+    ├── 📄 Matrix3D.cpp             # Implémentation des opérations matricielles
+    ├── 📄 PoolingLayer.cpp         # Implémentation de la couche de pooling
+    └── 📄 ReLULayer.cpp            # Implémentation de la couche d'activation ReLU
 ```
 
 ### Fonctionnalités
@@ -86,15 +86,15 @@ make          # Compile seulement
 ```
 
 ### Exemple d'utilisation
-Le programme principal (`main.cpp`) démontre les fonctionnalités via une suite de tests unitaires :
+Le programme principal (`main.cpp`) possède une suite de tests unitaires :
 1. **Tests de convolution** : Validation des opérations avec et sans padding
 2. **Tests de max pooling** : Vérification de la réduction dimensionnelle
 3. **Tests d'activation ReLU** : Validation de la fonction non linéaire
 4. **Tests combinés** : Enchaînement des opérations
-5. **Tests des couches** : Validation de chaque type de couche (Conv, ReLU, Pooling, FC)
+5. **Tests des couches** : Validation de chaque type de couche (Conv, ReLU, Pooling...)
 
 ### Documentation technique
-- **Formules.md** : Référence mathématique complète (initialisation, convolution, activation, backpropagation)
+- **Formules.md** : Contenant des référence mathématique utiles pour comprendre le code (initialisation, convolution, activation, backpropagation)
 - **Explications.md** : Détails techniques sur l'indexation linéaire et les astuces de calcul
 
 ### Développement futur
@@ -110,3 +110,5 @@ Ce projet est sous licence personnalisée. Voir le fichier `License.txt` pour pl
 ### Auteur
 Projet réalisé par Shoko_official.  
 GitHub : https://github.com/Shoko-official/AlexNet
+
+### PS : Toutes suggestions d'amélioration, contribution sera la bienvenue. Je suis ouvert à toute forme de collaboration, ou simple question technique ;)
