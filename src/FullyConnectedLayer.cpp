@@ -29,22 +29,45 @@ FullyConnectedLayer::FullyConnectedLayer(int inputSize, int outputSize, const st
 void FullyConnectedLayer::initializeWeights() {
     random_device rd;
     mt19937 gen(rd());
-    
-    // Initialisation de Xavier/Glorot
-    float standDeviat = sqrt(2.0f / (inputSize + outputSize)); // 2.0f es le facteur empirique (basé sur des recherches), on calcule poids avec variance controlée = Xavier/Glorot
+    float standDeviat = sqrt(2.0f / (inputSize + outputSize));
     normal_distribution<float> dist(0.0f, standDeviat);
     
-    // Initialisation des poids
-    weights.resize(outputSize, vector<float>(inputSize)); // weights = matrice, weights[i][j] représente le poids entre neuronne entée j et sortie i
+    weights.resize(outputSize, vector<float>(inputSize));
     for (int i = 0; i < outputSize; ++i) {
         for (int j = 0; j < inputSize; ++j) {
             weights[i][j] = dist(gen);
         }
     }
     
-    // Initialisation des biais à zéro
     biases.resize(outputSize, 0.0f);
 }
+
+// Nouvelle méthode pour initialiser les gradients
+void FullyConnectedLayer::initializeGradients() {
+    // Initialiser les gradients des poids à zéro
+    weightGradients.assign(outputSize, std::vector<float>(inputSize, 0.0f));
+    
+    // Initialiser les gradients des biais à zéro
+    biasGradients.assign(outputSize, 0.0f);
+}
+
+// Implémentations des getters pour les poids et gradients
+std::vector<std::vector<float>>& FullyConnectedLayer::getWeights() {
+    return weights;
+}
+
+std::vector<std::vector<float>>& FullyConnectedLayer::getWeightGradients() {
+    return weightGradients;
+}
+
+std::vector<float>& FullyConnectedLayer::getBiases() {
+    return biases;
+}
+
+std::vector<float>& FullyConnectedLayer::getBiasGradients() {
+    return biasGradients;
+}
+
 
 Matrix3D FullyConnectedLayer::forward(const Matrix3D& input) {
     // Vérifier que l'entrée peut être aplatie à la bonne taille

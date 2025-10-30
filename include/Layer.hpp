@@ -50,8 +50,6 @@ public:
 
     std::string getName() const { return name; }
 
-    virtual Matrix3D backward(const Matrix3D& outputGradient) = 0;
-    virtual void updateWeights(Optimizer& optimizer, float learningRate) = 0;
 };
 
 #endif
