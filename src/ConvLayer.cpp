@@ -44,11 +44,7 @@ ConvLayer::ConvLayer(int nbKernels, int kernelHeight, int kernelWidth, int input
 void ConvLayer::initializeWeights() {
     random_device rd;
     mt19937 gen(rd());
-    /* Comme dans FullyConnectedLayer, on utilise la formule de Xavier/Glorot
-    mais ici, fan_in = nombre total de valeurs danss un filtre
-    */
     float standDeviat = sqrt(2.0f / (kernels[0].getHeight() * kernels[0].getWidth() * kernels[0].getDepth()));
-
     normal_distribution<float> dist(0.0f, standDeviat);
 
     for (auto& kernel : kernels) {
@@ -60,6 +56,35 @@ void ConvLayer::initializeWeights() {
             }
         }
     }
+}
+
+// Nouvelle méthode pour initialiser les gradients
+void ConvLayer::initializeGradients() {
+    // Initialiser les gradients des noyaux à zéro
+    kernelGradients.clear();
+    for (const auto& kernel : kernels) {
+        kernelGradients.emplace_back(kernel.getDepth(), kernel.getHeight(), kernel.getWidth());
+    }
+    
+    // Initialiser les gradients des biais à zéro
+    biasGradients.assign(biases.size(), 0.0f);
+}
+
+// Implémentations des getters pour les poids et gradients
+std::vector<Matrix3D>& ConvLayer::getKernels() {
+    return kernels;
+}
+
+std::vector<Matrix3D>& ConvLayer::getKernelGradients() {
+    return kernelGradients;
+}
+
+std::vector<float>& ConvLayer::getBiases() {
+    return biases;
+}
+
+std::vector<float>& ConvLayer::getBiasGradients() {
+    return biasGradients;
 }
 
 Matrix3D ConvLayer::forward(const Matrix3D& input) {

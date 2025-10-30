@@ -13,6 +13,10 @@ private:
     std::vector<float> biases;
     int stride;
     bool samePadding;
+    
+    // Ajout des gradients pour la rétropropagation
+    std::vector<Matrix3D> kernelGradients;  // Gradients des noyaux
+    std::vector<float> biasGradients;       // Gradients des biais
 
 public:
     // Constructeur
@@ -24,11 +28,20 @@ public:
 
     // Initialisation des poids et biais
     void initializeWeights();
+    
+    // Initialisation des gradients (à appeler avant la rétropropagation)
+    void initializeGradients();
 
     // Affichage des informations de la couche
     void printInfo() const override;
 
-    // Getters
+    // Getters pour les poids et gradients
+    std::vector<Matrix3D>& getKernels();
+    std::vector<Matrix3D>& getKernelGradients();
+    std::vector<float>& getBiases();
+    std::vector<float>& getBiasGradients();
+    
+    // Getters existants
     int getNumKernels() const;
     int getKernelHeight() const;
     int getKernelWidth() const;
