@@ -44,7 +44,7 @@ ConvLayer::ConvLayer(int nbKernels, int kernelHeight, int kernelWidth, int input
 void ConvLayer::initializeWeights() {
     random_device rd;
     mt19937 gen(rd());
-    float standDeviat = sqrt(2.0f / (kernels[0].getHeight() * kernels[0].getWidth() * kernels[0].getDepth()));
+    float standDeviat = sqrt(2.0f / (kernels[0].getHeight() * kernels[0].getWidth() * kernels[0].getDepth())); // He initialisation
     normal_distribution<float> dist(0.0f, standDeviat);
 
     for (auto& kernel : kernels) {
@@ -101,7 +101,7 @@ Matrix3D ConvLayer::forward(const Matrix3D& input) {
 
     int outHeight, outWidth;
 
-    if (samePadding) {
+    if (samePadding) { // sortie de même taille que l'entrée
         outHeight = input.getHeight();
         outWidth = input.getWidth();
     } else {
@@ -109,7 +109,7 @@ Matrix3D ConvLayer::forward(const Matrix3D& input) {
         outWidth = (input.getWidth() - kernelWidth) / stride + 1;
     }
 
-    Matrix3D output(static_cast<int>(kernels.size()), outHeight, outWidth);
+    Matrix3D output(static_cast<int>(kernels.size()), outHeight, outWidth); // tensor de sortie
 
     for (size_t k = 0; k < kernels.size(); ++k) {
 
@@ -117,14 +117,14 @@ Matrix3D ConvLayer::forward(const Matrix3D& input) {
 
         for (int y = 0; y < outHeight; ++y) {
             for (int x = 0; x < outWidth; ++x) {
-                float value = convResult.at(0, y, x) + biases[k];
+                float value = convResult.at(0, y, x) + biases[k]; // on ajoute un biais au noyau
 
-                output.at(static_cast<int>(k), y, x) = max(0.0f, value);
+                output.at(static_cast<int>(k), y, x) = max(0.0f, value); // activation ReLU
             }
         }
     }
 
-    return output;
+    return output; // retourne une pile de cartes de caractéristiques (1/noyau)
 }
 
 void ConvLayer::printInfo() const {
