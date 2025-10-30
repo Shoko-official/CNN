@@ -26,17 +26,13 @@ protected:
 
 public:
 /*
-    On pourrais personaliser le nom :
+    Exemple de nom :
     - DenseLayer
     - ConvLayer
     - ReLULayer
      */
     Layer(const std::string& layerName = "Layer") : name(layerName) {}
 
-    /*
-    Obligatoire pour les classes polymorphiques afin d'assurer que 
-    le destructeur de la classe dérivée soit bien appelé lors de la destruction.
-    */
     virtual ~Layer() {}
 
     /**
@@ -53,6 +49,9 @@ public:
     }
 
     std::string getName() const { return name; }
+
+    virtual Matrix3D backward(const Matrix3D& outputGradient) = 0;
+    virtual void updateWeights(Optimizer& optimizer, float learningRate) = 0;
 };
 
 #endif
