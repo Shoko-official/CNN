@@ -1,14 +1,24 @@
-class Optimizer {
-public:
-    virtual void update(ConvLayer& layer, float lr) = 0;
-    virtual void update(FullyConnectedLayer& layer, float lr) = 0;
-    // ... autres couches
-};
+#include "Optimizer.hpp"
+#include <iostream>
+#include <cmath>
 
-class SGD : public Optimizer {
-    // Implémentation : poids = poids - lr * gradient
-};
+// Implémentation de SGD
+void SGD::update(ConvLayer& layer, float lr) {
+}
 
-class Adam : public Optimizer {
-    // Implémentation avec moments du 1er/2ème ordre
-};
+void SGD::update(FullyConnectedLayer& layer, float lr) {
+}
+
+// Implémentation de Adam
+Adam::Adam(float beta1, float beta2, float epsilon) 
+    : beta1(beta1), beta2(beta2), epsilon(epsilon), t(0) {
+}
+
+Adam::~Adam() {
+}
+
+void Adam::update(ConvLayer& layer, float lr) {
+}
+
+void Adam::update(FullyConnectedLayer& layer, float lr) {
+}
